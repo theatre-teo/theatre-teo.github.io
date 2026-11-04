@@ -9,6 +9,7 @@
 <meta property="og:type" content="website">
 <style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 <title>극단 터</title>
+<link rel="icon" type="image/png" href="img/favicon.png">
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jua&family=Noto+Sans+KR:wght@400;500;700&display=swap">
@@ -46,7 +47,9 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 header{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
 header .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:12px}
 .logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);font-family:var(--display);font-size:1.5rem}
-.logo svg{width:38px;height:38px;flex:none}
+.logo img{display:block;height:48px;width:auto;border-radius:8px}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .logo img{background:#fff;padding:3px 6px}}
+:root[data-theme="dark"] .logo img{background:#fff;padding:3px 6px}
 nav{display:flex;gap:4px;overflow-x:auto}
 nav a{text-decoration:none;color:var(--ink);font-weight:500;padding:6px 12px;border-radius:999px;white-space:nowrap;font-size:.95rem}
 nav a:hover{background:var(--sea-soft)}
@@ -186,10 +189,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 <body>
 <header>
   <div class="wrap">
-    <a class="logo" href="#home" aria-label="극단 터 처음으로">
-      <svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="19" fill="var(--sun)"/><path d="M6 25c4-3 8-3 11 0s8 3 11 0 6-2 6-2v6a14 14 0 0 1-28 0z" fill="var(--sea)"/><text x="20" y="20" text-anchor="middle" font-family="Jua,sans-serif" font-size="13" fill="var(--ink)">터</text></svg>
-      극단 터
-    </a>
+    <a class="logo" href="#home"><img src="img/logo-teo.png" alt="극단 터" width="81" height="48"></a>
     <nav aria-label="주요 메뉴">
       <a href="#home">다음 공연</a>
       <a href="#about">극단 소개</a>
