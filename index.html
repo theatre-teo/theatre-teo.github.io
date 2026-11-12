@@ -93,6 +93,15 @@ nav a:hover{background:var(--sea-soft)}
 @media (max-width:560px){.cast{grid-template-columns:1fr}}
 .theme{margin-top:16px;display:grid;gap:6px;max-width:460px;font-size:.88rem;font-weight:700;color:var(--sea)}
 .theme audio{width:100%;height:40px}
+.bookbar{display:none}
+@media (max-width:820px){
+  .qr{display:none}
+  .bookbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:20;gap:10px;align-items:center;justify-content:space-between;background:var(--card);border-top:1px solid var(--line);box-shadow:0 -6px 20px -10px rgba(23,58,82,.35);padding:10px max(16px,env(safe-area-inset-right,0px)) calc(10px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
+  .bookbar span{font-size:.82rem;line-height:1.35;color:var(--ink)}
+  .bookbar b{display:block;font-family:var(--display);font-weight:400;font-size:1rem;color:var(--sea)}
+  .bookbar a{flex:none;background:var(--coral);color:#fff;text-decoration:none;font-weight:700;padding:12px 20px;border-radius:999px;font-size:1rem}
+  footer{padding-bottom:calc(96px + env(safe-area-inset-bottom,0px))}
+}
 .credit{margin-top:16px;font-size:.82rem;color:var(--muted);line-height:1.6}
 .poster canvas{position:absolute;inset:0;width:100%;height:100%}
 .poster .ptxt{position:absolute;left:0;right:0;bottom:0;padding:20px;color:#fff;font-family:var(--display);background:linear-gradient(transparent,rgba(6,35,58,.7))}
@@ -399,6 +408,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 </main>
 
 <dialog id="viewer" aria-label="포스터 크게 보기"><img id="viewerImg" alt=""><button id="viewerClose">닫기</button></dialog>
+
+<div class="bookbar"><span><b>바다로 가는 꿈</b>12.13(일) 오후 4시·7시 30분</span><a href="https://docs.google.com/forms/d/1QQp2dwYm8sL6r2h1ZBrxZJEBvMgcwD4ztRxc3XiSui4/viewform" target="_blank" rel="noopener">예매하기</a></div>
 
 <footer><div class="wrap"><span>© 2026 극단 터 · 울산</span><span>대표 이상훈</span></div></footer>
 
