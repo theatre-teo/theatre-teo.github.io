@@ -121,6 +121,13 @@ nav a:hover{background:var(--sea-soft)}
 .person h4{margin:2px 0 8px;font-family:var(--display);font-weight:400;font-size:1.3rem;color:var(--cc-fg)}
 .person ul{margin:0;padding:0;list-style:none;display:grid;gap:3px;font-size:.88rem;color:var(--cc-muted);line-height:1.5}
 .person li::before{content:"· ";color:var(--gold)}
+.org-btn{font:inherit;font-weight:700;font-size:.9rem;color:#1d2a36;background:none;border:0;padding:0;cursor:pointer;display:inline-flex;align-items:center;gap:6px}
+.org-btn::after{content:"▾";transition:transform .2s}
+.org-btn[aria-expanded="true"]::after{transform:rotate(180deg)}
+.cc-org li:has(.org-btn){outline:2px solid transparent;transition:background .2s}
+.cc-org li:has(.org-btn):hover{background:#f0c879}
+.org-panel{margin-top:14px;display:grid;gap:12px;max-width:820px}
+.org-panel img{display:block;width:100%;height:auto;border-radius:12px}
 .cc-org{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
 .cc-org li{background:var(--gold);color:#1d2a36;font-weight:700;font-size:.9rem;padding:4px 14px;border-radius:999px}
 @media (max-width:820px){.cc-cast{grid-template-columns:1fr 1fr}}
@@ -346,7 +353,11 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
       </article>
     </div>
     <h3>협력 단체</h3>
-    <ul class="cc-org"><li>뮤키즈 예술단</li><li>조이 뮤지컬 컴퍼니</li><li>NB dance company</li></ul>
+    <ul class="cc-org"><li><button type="button" class="org-btn" aria-expanded="false" aria-controls="org-mukids">뮤키즈 예술단</button></li><li>조이 뮤지컬 컴퍼니</li><li>NB dance company</li></ul>
+    <div class="org-panel" id="org-mukids" hidden>
+      <img src="img/mukids-banner.jpg" alt="뮤키즈 예술단 — 영유아·가족 참여형 클래식 콘서트, 음악감독 신윤희, 010-3051-4545" width="1400" height="700" loading="lazy">
+      <img src="img/mukids-academy.jpg" alt="신윤희 뮤직 아카데미 — 플루트·바이올린·첼로·클라리넷·피아노·드럼, 052-260-8436" width="1400" height="467" loading="lazy">
+    </div>
   </div>
 </section>
 
@@ -565,6 +576,12 @@ document.querySelectorAll('.pic').forEach(b=>b.addEventListener('click',()=>{
 }));
 document.getElementById('viewerClose').addEventListener('click',()=>dlg.close());
 dlg.addEventListener('click',e=>{if(e.target===dlg)dlg.close()});
+
+// 협력 단체 펼치기
+document.querySelectorAll('.org-btn').forEach(b=>b.addEventListener('click',()=>{
+  const p=document.getElementById(b.getAttribute('aria-controls')); const open=b.getAttribute('aria-expanded')==='true';
+  b.setAttribute('aria-expanded',String(!open)); p.hidden=open;
+}));
 
 // 복사 버튼
 document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',()=>{
